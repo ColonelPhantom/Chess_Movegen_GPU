@@ -6,7 +6,7 @@
 // Robert Hyatt's and Michael Sherwin's classical bitboard approach
 // generate moves for the sliding pieces.
 
-//Cuda Translation by Daniel Inführ - Jan. 2022
+//Cuda Translation by Daniel Infï¿½hr - Jan. 2022
 //Contact: daniel.infuehr@live.de
 
 #include <cstdint>
@@ -109,7 +109,7 @@ namespace BobLU {
 
 	__device__ uint64_t countl_zero(uint64_t value)
 	{
-		return __ffsll(value);
+		return __ffsll((unsigned long long)value);
 	}
 
 	__device__ uint64_t Queen(int sq, uint64_t occ) {

@@ -1,11 +1,11 @@
 #pragma once
 #include <hip/hip_runtime.h>
 
-//(c) Daniel Inführ 2020
+//(c) Daniel Infï¿½hr 2020
 //for questions email to daniel.infuehr@live.de
 //Created by enumerating pext moves via Lookup_Switch
 
-//Cuda Translation by Daniel Inführ - Jan. 2022
+//Cuda Translation by Daniel Infï¿½hr - Jan. 2022
 //Contact: daniel.infuehr@live.de
 
 #pragma once
@@ -6814,8 +6814,8 @@ namespace Pext {
 			lbish[i].mask = bmask[i];
 		}
 
-		HIP_SYMBOL(cu_rook)(hipMemcpyToSymbol(cu_rook, lrook, sizeof(lrook)));
-		HIP_SYMBOL(cu_bish)(hipMemcpyToSymbol(cu_bish, lbish, sizeof(lbish)));
+		gpuErrchk(hipMemcpyToSymbol(cu_rook, lrook, sizeof(lrook)));
+		gpuErrchk(hipMemcpyToSymbol(cu_bish, lbish, sizeof(lbish)));
 	}
 
 	__device__ uint64_t _pext_u64_emulated(uint64_t val, uint64_t mask)

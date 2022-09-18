@@ -4,7 +4,7 @@
 #include <array>
 #include "cu_Common.h"
 
-//Cuda Translation by Daniel Inführ - Jan. 2022
+//Cuda Translation by Daniel Infï¿½hr - Jan. 2022
 //Contact: daniel.infuehr@live.de
 
 namespace FancyHash {
@@ -896,8 +896,8 @@ namespace FancyHash {
             lbish[i].hash = b_magics[i].hash;
             lbish[i].mask = b_magics[i].mask;
         }
-        HIP_SYMBOL(cu_rook)(hipMemcpyToSymbol(cu_rook, lrook, sizeof(lrook)));
-        HIP_SYMBOL(cu_bish)(hipMemcpyToSymbol(cu_bish, lbish, sizeof(lbish)));
+        gpuErrchk(hipMemcpyToSymbol(cu_rook, lrook, sizeof(lrook)));
+        gpuErrchk(hipMemcpyToSymbol(cu_bish, lbish, sizeof(lbish)));
     }
 
     __device__ uint64_t Rook(int s, uint64_t occ) {

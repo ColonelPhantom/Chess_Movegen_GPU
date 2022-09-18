@@ -8,7 +8,7 @@
  change them with the functions of your compiler.
 */
 
-//Cuda Translation by Daniel Inführ - Jan. 2022
+//Cuda Translation by Daniel Infï¿½hr - Jan. 2022
 //Contact: daniel.infuehr@live.de
 
 namespace QBB {
@@ -19,7 +19,7 @@ namespace QBB {
 
     __device__ uint64_t LSB(uint64_t value)
     {
-        return __ffsll(value) - 1ull;
+        return __ffsll((unsigned long long)value) - 1ull;
     }
 
     /* return the bitboard with the rook destinations */

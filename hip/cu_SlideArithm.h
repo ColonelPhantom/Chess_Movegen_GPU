@@ -5,7 +5,7 @@
 #include <cstdint>
 #include "cu_Common.h"
 
-//Cuda Translation by Daniel Inführ - Jan. 2022
+//Cuda Translation by Daniel Infï¿½hr - Jan. 2022
 //Contact: daniel.infuehr@live.de
 
 namespace SlideArithm
@@ -41,7 +41,7 @@ namespace SlideArithm
 	__shared__ uint64_t rank_mask[256];
 
 	void Init() {
-		HIP_SYMBOL(rank_mask_const)(hipMemcpyToSymbol(rank_mask_const, host_rank_mask.data(), sizeof(host_rank_mask)));
+		gpuErrchk(hipMemcpyToSymbol(rank_mask_const, host_rank_mask.data(), sizeof(host_rank_mask)));
 	}
 
 	__inline__ __device__ void Prepare(unsigned int threadIdx)

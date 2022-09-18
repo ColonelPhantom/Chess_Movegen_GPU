@@ -5,7 +5,7 @@
 //(c) Michael J Sherwin 2020
 //SISSY BOARDS - https://www.chessprogramming.org/SISSY_Bitboards
 
-//Cuda Translation by Daniel Inführ - Jan. 2022
+//Cuda Translation by Daniel Infï¿½hr - Jan. 2022
 //Contact: daniel.infuehr@live.de
 
 #include <stdint.h>
@@ -153,7 +153,7 @@ namespace SISSY
 
         uint64_t* attacks;
         gpuErrchk(hipMalloc(&attacks, sizeof(qss)));
-        HIP_SYMBOL(cu_qss_atk)(hipMemcpyToSymbol(cu_qss_atk, &attacks, sizeof(uint64_t*)));
+        gpuErrchk(hipMemcpyToSymbol(cu_qss_atk, &attacks, sizeof(uint64_t*)));
 
         for (int x = 0; x < 64; x++) {
             for (int y = 0; y < 256; y++) {

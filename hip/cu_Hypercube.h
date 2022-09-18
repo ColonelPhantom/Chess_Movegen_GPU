@@ -1,7 +1,7 @@
 #pragma once
 #include <hip/hip_runtime.h>
 
-//(c) Daniel Inführ 2021
+//(c) Daniel Infï¿½hr 2021
 //for questions email to daniel.infuehr@live.de
 //Created with a cube delta representation of all pext configurations during makemove
 
@@ -11,7 +11,7 @@
 #include <string.h>
 #include "cu_Common.h"
 
-//Cuda Translation by Daniel Inführ - Jan. 2022
+//Cuda Translation by Daniel Infï¿½hr - Jan. 2022
 //Contact: daniel.infuehr@live.de
 
 namespace Hypercube {
@@ -402,8 +402,8 @@ namespace Hypercube {
 			lbish[i] = attacks + (BishopMoves[i] - Movemap);
 		}
 
-		HIP_SYMBOL(cu_rook)(hipMemcpyToSymbol(cu_rook, lrook, sizeof(lrook)));
-		HIP_SYMBOL(cu_bish)(hipMemcpyToSymbol(cu_bish, lbish, sizeof(lbish)));
+		gpuErrchk(hipMemcpyToSymbol(cu_rook, lrook, sizeof(lrook)));
+		gpuErrchk(hipMemcpyToSymbol(cu_bish, lbish, sizeof(lbish)));
 	}
 
 	__device__ uint64_t Rook(int sq, uint16_t* cfgR) {

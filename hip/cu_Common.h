@@ -1,18 +1,18 @@
 ﻿#pragma once
 #include "hip/hip_runtime.h"
-#include "device_launch_parameters.h"
+//#include "device_launch_parameters.h"
 #include <hiprand.h>
 #include <hiprand_kernel.h>
 #include "hip/hip_runtime_api.h"
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
-#include <vector_functions.h>
+//#include <vector_functions.h>
 
 #ifndef __HIPCC__
 #define __HIPCC__
 #endif
-#include "device_atomic_functions.h"
+//#include "device_atomic_functions.h"
 
 #define gpuErrchk(ans) { gpuAssert((ans), __FILE__, __LINE__); }
 inline void gpuAssert(hipError_t code, const char* file, int line, bool abort = true)
