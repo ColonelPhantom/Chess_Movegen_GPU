@@ -7,10 +7,9 @@ CFLAGS=-gencode arch=compute_52,code=sm_52\
 -gencode=arch=compute_80,code=sm_80\
 -gencode=arch=compute_86,code=sm_86\
 -gencode=arch=compute_87,code=sm_87\
---expt-relaxed-constexpr -std=c++17 --run --threads 8 -O3 kernel.cu
+--expt-relaxed-constexpr -std=c++17 -O3 kernel.cu
 # -flto
 default: all
 
 all: kernel.cu
 	$(CC) $(CFLAGS) -o movegen_gpu
-	

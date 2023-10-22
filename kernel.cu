@@ -1,5 +1,5 @@
 ﻿
-#include "Cu_Common.h"
+#include "cu_Common.h"
 
 #include <numeric>
 #include <iostream>
@@ -27,8 +27,8 @@
 #include "cu_SlideArithmInline.h"
 #include "cu_Genetic8Ray.h"
 #include "cu_Bitrotation.h"
-#include "cu_foldingHash.h"
-#include "cu_bitray.h"
+#include "cu_FoldingHash.h"
+#include "cu_Bitray.h"
 #include "kernel.h"
 
 /// <summary>
