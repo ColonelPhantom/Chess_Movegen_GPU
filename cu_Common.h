@@ -1,18 +1,18 @@
-﻿#pragma once
+#pragma once
 #include "cuda_runtime.h"
-#include "device_launch_parameters.h"
-#include <curand.h>
-#include <curand_kernel.h>
+// #include "device_launch_parameters.h"
+// #include <curand.h>
+// #include <curand_kernel.h>
 #include "cuda_runtime_api.h"
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
-#include <vector_functions.h>
+// #include <vector_functions.h>
 
 #ifndef __CUDACC__
 #define __CUDACC__
 #endif
-#include "device_atomic_functions.h"
+// #include "device_atomic_functions.h"
 
 #define gpuErrchk(ans) { gpuAssert((ans), __FILE__, __LINE__); }
 inline void gpuAssert(cudaError_t code, const char* file, int line, bool abort = true)
@@ -33,9 +33,13 @@ void cudaVerifyLaunch() {
     }
 }
 
+// #define curandStateXORWOW void;
+// #include <random>
+
 //cu_rand64, cu_rand32
-__device__ uint64_t cu_rand64(curandStateXORWOW* rnd) {
-    return (((uint64_t)curand(rnd)) << 32) | curand(rnd);
+__device__ uint64_t cu_rand64(void* rnd) {
+    // return (((uint64_t)curand(rnd)) << 32) | curand(rnd);
+    return 0;
 }
 __device__ uint64_t cu_rand32(uint32_t& x, uint32_t& y, uint32_t& z) {
     uint32_t t;
@@ -46,8 +50,8 @@ __device__ uint64_t cu_rand32(uint32_t& x, uint32_t& y, uint32_t& z) {
 __device__ uint64_t cu_rand64(uint32_t& x, uint32_t& y, uint32_t& z) {
     return (((uint64_t)cu_rand32(x, y, z)) << 32) | cu_rand32(x, y, z);
 }
-__device__ uint64_t cu_rand32(curandStateXORWOW* rnd) {
-    return curand(rnd);
+__device__ uint64_t cu_rand32(void* rnd) {
+    return 0;
 }
 
 //getIdx

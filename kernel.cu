@@ -239,10 +239,10 @@ void TestChessprocessor(int blocks, int threadsperblock) {
 void SetupDevice()
 {
     gpuErrchk(cudaSetDevice(0));
-    gpuErrchk(cudaSetDeviceFlags(cudaDeviceScheduleBlockingSync));
+    // gpuErrchk(cudaSetDeviceFlags(cudaDeviceScheduleBlockingSync));
     cudaDeviceProp prop;
     gpuErrchk(cudaGetDeviceProperties(&prop, 0));
-    gpuErrchk(cudaDeviceSetSharedMemConfig(cudaSharedMemConfig::cudaSharedMemBankSizeEightByte));
+    // gpuErrchk(cudaDeviceSetSharedMemConfig(cudaSharedMemConfig::cudaSharedMemBankSizeEightByte));
     gpuErrchk(cudaDeviceSynchronize());
     std::cout << prop.name << "\n";
 }
@@ -250,7 +250,7 @@ void SetupDevice()
 int main()
 {
     SetupDevice();
-    constexpr int blocks = 4096;
+    constexpr int blocks = 256;
     constexpr int threadsperblock = 256;
     //TestCoprocessor(blocks, threadsperblock);
     //while (true) {
